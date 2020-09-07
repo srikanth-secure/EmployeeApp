@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Employee Data System</h3>
+	<a th:href="@{/employee/register}">ADD EMPLOYEE</a>
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>NAME</td>
+			<td>EMAIL</td>
+			<td>GENDER</td>
+			<td>ADDRESS</td>
+			<td>PROJECTS</td>
+			<td>SLOTS</td>
+			<td>ACTION</td>
+		</tr>
+		<tr th:each="ob:${list}">
+			<td th:text="${ob.id}"></td>
+			<td th:text="${ob.ename}"></td>
+			<td th:text="${ob.email}"></td>
+			<td th:text="${ob.gender}"></td>
+			<td th:text="${ob.eaddr}"></td>
+			<td th:text="${ob.prjs}"></td>
+			<td th:text="${ob.slots}"></td>
+			<td><a th:href="@{/employee/delete?id={data}(data=${ob.id})}">DELETE</a>
+			</td>
+		</tr>
+	</table>
+	<span th:text="${message}"></span>
+</body>
+</html>
