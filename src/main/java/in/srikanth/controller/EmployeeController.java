@@ -62,4 +62,13 @@ public class EmployeeController {
 		return "AfterAction";
 		// return "EmployeeData";
 	}
+
+	@GetMapping("/edit")
+	public String showEdit(@RequestParam Integer id, Model model) {
+		Employee e = service.getOneEmployee(id);
+		model.addAttribute("employee", e);
+		return "EmployeeEdit";
+		
+	}
+
 }

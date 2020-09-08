@@ -27,7 +27,7 @@
 			<td th:text="${ob.prjs}"></td>
 			<td th:text="${ob.slots}"></td>
 			<td><a th:href="@{/employee/delete?id={data}(data=${ob.id})}">DELETE</a>
-			</td>
+				<a th:href="@{/employee/edit?id={data}(data=${ob.id})}">EDIT</a></td>
 		</tr>
 	</table>
 	<span th:text="${message}"></span>

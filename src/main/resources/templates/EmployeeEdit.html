@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Employee EDIT Page</h3>
+	<form th:action="@{/employee/actiondone}" method="POST"
+		th:object="${employee}">
+		<table border="1">
+			<tr>
+				<td>ID :</td>
+				<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+			</tr>
+
+			<tr>
+				<td>NAME :</td>
+				<td><input type="text" th:field="*{ename}" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td>EMAIL:</td>
+				<td><input type="text" th:field="*{email}" /></td>
+			</tr>
+			<tr>
+				<td>GENDER:</td>
+				<td><input type="radio" th:field="*{gender}" value="Male" />Male<input
+					type="radio" th:field="*{gender}" value="Female" />Female</td>
+			</tr>
+			<tr>
+				<td>ADDRESS:</td>
+				<td><textarea th:field="*{eaddr}"></textarea></td>
+			</tr>
+			<tr>
+				<td>PROJECTS:</td>
+				<td><select th:field="*{prjs}" multiple="multiple">
+						<option value="NIT">NIT</option>
+						<option value="VND">VND</option>
+						<option value="HTC">HTC</option>
+						<option value="STS">STS</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>SLOTS:</td>
+				<td><input type="checkbox" th:field="*{slots}" value="SHIFT-A">SHIFT-A
+					<input type="checkbox" th:field="*{slots}" value="SHIFT-B">SHIFT-B
+					<input type="checkbox" th:field="*{slots}" value="SHIFT-C">SHIFT-C
+					<input type="checkbox" th:field="*{slots}" value="SHIFT-D">SHIFT-D</td>
+		</table>
+		<input type="submit" value="UPDATE EMPLOYEE" />
+	</form>
+	<span th:text="${message}"></span>
+</body>
+</html>
